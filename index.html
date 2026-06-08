@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>다산미래창작소 AI교실</title>
+  <!-- Tailwind CSS v3 CDN with Plugins -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Google Fonts: Noto Sans KR -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+  <!-- FontAwesome for fallback icons if needed -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-blue': '#0038c8',
+            'brand-light-blue': '#e8f0fe',
+            'brand-dark-blue': '#002bb0',
+          },
+          fontFamily: {
+            sans: ['Noto Sans KR', 'sans-serif'],
+          },
+          boxShadow: {
+            'card': '0 4px 20px rgba(0, 56, 200, 0.08)',
+            'nav': '0 2px 15px rgba(0, 0, 0, 0.05)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      word-break: keep-all;
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #ffffff 0%, #d1e3ff 100%);
+    }
+    /* Subtle button hover transforms */
+    .btn-hover {
+      transition: all 0.2s ease-in-out;
+    }
+    .btn-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 56, 200, 0.25);
+    }
+    /* Floating animation for 3D character in hero */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(1deg); }
+    }
+    .animate-float {
+      animation: float 5s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans selection:bg-brand-light-blue selection:text-brand-blue">
+
+  <!-- BEGIN: Navigation / Header -->
+  <header class="bg-white sticky top-0 z-50 shadow-nav border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4 h-20">
+        <!-- Logo -->
+        <a href="#" class="flex-shrink-0 flex items-center space-x-2">
+          <img alt="다산미래창작소 로고" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9yh7-XUz4kWbTEqzajZAz9ROpjuo0DuDjpxLt0D7EuxtOUs_91zGOdXtjBsewOgvtfo2aQzMxmRKKmSbOcJ1dFhRJUb_5eP5-lwqpAcajVUJoHkg2LcZOr-PKLklUwmsHNj9ias4PqYiQc1WLYDn47DabiYqfxlc7mQ-h8xJIPbbDFpohEdwClu-zuaGH5rtD5Hcp1GF_L1s6ESUUKiq9b0NxkI2t6FOs2TEgTwLbBhNDaNIDaFh9f7HFEfniRqhlQeIhcXnJ"/>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-8 lg:space-x-10 text-base font-bold text-gray-600">
+          <a class="hover:text-brand-blue transition-colors" href="#programs">교육 프로그램</a>
+          <a class="hover:text-brand-blue transition-colors" href="#methods">교육 방식</a>
+          <a class="hover:text-brand-blue transition-colors" href="#outcomes">기대 효과</a>
+          <a class="hover:text-brand-blue transition-colors" href="#instructor-info">강사 소개</a>
+          <a class="hover:text-brand-blue transition-colors" href="#contact-section">교육 문의</a>
+        </nav>
+
+        <!-- CTA & Hamburger Button -->
+        <div class="flex items-center space-x-4">
+          <div class="hidden md:block">
+            <a class="inline-flex items-center px-6 py-2.5 bg-brand-blue hover:bg-brand-dark-blue text-white text-sm font-bold rounded-full btn-hover" href="#contact-section">
+              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path>
+              </svg>
+              교육 문의하기
+            </a>
+          </div>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 hover:text-brand-blue transition-all focus:outline-none" aria-label="메뉴 열기">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="hamburger-icon">
+              <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Overlay -->
+    <div id="mobile-drawer" class="fixed inset-0 bg-black/50 z-40 hidden transition-opacity duration-300">
+      <div class="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-white p-6 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300" id="drawer-content">
+        <div>
+          <!-- Drawer Header -->
+          <div class="flex justify-between items-center mb-8 border-b pb-4">
+            <span class="font-bold text-gray-950 text-lg">AI교실 메뉴</span>
+            <button id="close-drawer-btn" class="p-2 rounded-full hover:bg-gray-100 text-gray-500 hover:text-gray-900">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+            </button>
+          </div>
+          <!-- Drawer Links -->
+          <nav class="flex flex-col space-y-5 text-lg font-bold text-gray-800">
+            <a class="drawer-link hover:text-brand-blue py-2 border-b border-gray-50" href="#programs">교육 프로그램</a>
+            <a class="drawer-link hover:text-brand-blue py-2 border-b border-gray-50" href="#methods">교육 방식</a>
+            <a class="drawer-link hover:text-brand-blue py-2 border-b border-gray-50" href="#outcomes">기대 효과</a>
+            <a class="drawer-link hover:text-brand-blue py-2 border-b border-gray-50" href="#instructor-info">강사 소개</a>
+            <a class="drawer-link hover:text-brand-blue py-2 border-b border-gray-50" href="#contact-section">교육 문의</a>
+          </nav>
+        </div>
+
+        <!-- Drawer CTA Footer -->
+        <div class="mt-auto pt-6 border-t">
+          <a class="w-full inline-flex items-center justify-center py-3 bg-brand-blue text-white font-bold rounded-lg hover:bg-brand-dark-blue max-w-full" href="#contact-section" id="drawer-cta-btn">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path>
+            </svg>
+            교육 문의하기
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- END: Navigation / Header -->
+
+  <main>
+    <!-- BEGIN: Hero Section -->
+    <section class="hero-gradient relative overflow-hidden py-16 md:py-28 lg:py-36">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          
+          <!-- Hero Text -->
+          <div class="text-left select-text">
+            <h3 class="text-2xl md:text-3xl font-extrabold text-gray-800 tracking-tight mb-2">다산미래창작소</h3>
+            <h1 class="font-black text-brand-blue mb-6 text-7xl md:text-8xl lg:text-9xl tracking-tight leading-none" style="text-shadow: 0 4px 15px rgba(0, 56, 200, 0.12);">
+              AI교실
+            </h1>
+            <p class="text-xl md:text-2xl lg:text-3xl font-medium text-gray-700 leading-snug max-w-lg mb-8">
+              AI와 함께 시대 전환의<br/>
+              서핑을 돕는 <span class="text-brand-blue font-bold border-b-4 border-brand-blue/30 pb-0.5">실습 중심 교육 프로그램</span>
+            </p>
+            <div>
+              <a class="inline-flex items-center px-8 py-4 bg-brand-blue hover:bg-brand-dark-blue text-white text-lg font-bold rounded-xl btn-hover shadow-lg" href="#contact-section">
+                <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path>
+                </svg>
+                교육 문의하기
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Artwork -->
+          <div class="relative flex justify-center items-center">
+            <!-- Ambient Backdrop blur -->
+            <div class="absolute inset-x-0 w-80 h-80 bg-brand-blue/15 blur-3xl rounded-full scale-110 pointer-events-none md:-right-10 md:-top-10"></div>
+            <!-- Decorative Vector floating items -->
+            <div class="absolute top-10 left-5 w-12 h-12 bg-white/40 backdrop-blur-md rounded-xl shadow-lg border border-white/20 animate-bounce" style="animation-duration: 4s;"></div>
+            <div class="absolute bottom-10 right-5 w-16 h-16 bg-white/40 backdrop-blur-md rounded-xl shadow-lg border border-white/20 animate-bounce" style="animation-duration: 3s;"></div>
+
+            <!-- Main 3D Character image -->
+            <div class="relative w-full max-w-[420px] aspect-square flex justify-center items-end animate-float">
+              <img alt="AI 교실 캐릭터 이미지" class="max-h-[480px] w-auto object-contain z-10 drop-shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY2J5rtA_GRTpSbXqyYNW2g6-Bl5VC7Rx_NFHOXBBwK8UB_pxLxg6v_iHZb4Jhuy5lD4h63xDcYj-dFJlmP02QG5YAq5my8yOmbUesmOJeSw33nvzDpYe4xjzfUzNu5lup_9G7cJNJr_yke_Nhz1m8NzPMqZlM2am5yVZSkNlSqgwGzykr9ah6bOCVlayvLDBUtQz0Cxj3nvhnuhU0_2WlHlVnJXw9kKdoGLWE5xHQmalzw7pZ1dfy0K7fX4NqySl0dCqpUIlv"/>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- END: Hero Section -->
+
+
+    <!-- BEGIN: Key Highlights Block -->
+    <section class="relative -mt-10 md:-mt-14 z-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-6">
+        
+        <!-- Highlight Card 1 -->
+        <div class="bg-white rounded-2xl p-6 sm:p-8 flex items-center space-x-6 shadow-card hover:shadow-xl transition-all border border-gray-100/60">
+          <div class="bg-brand-blue p-4 rounded-2xl text-white flex-shrink-0 shadow-md">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-2xl font-black text-gray-900 mb-1">AI시대,</h4>
+            <p class="text-lg text-gray-600 font-medium">무엇이든 가능해집니다</p>
+          </div>
+        </div>
+
+        <!-- Highlight Card 2 -->
+        <div class="bg-white rounded-2xl p-6 sm:p-8 flex items-center space-x-6 shadow-card hover:shadow-xl transition-all border border-gray-100/60">
+          <div class="bg-brand-blue p-4 rounded-2xl text-white flex-shrink-0 shadow-md">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-2xl font-black text-gray-900 mb-1">성인 누구나</h4>
+            <p class="text-lg text-gray-600 font-medium">실습을 통해 바로 실무에 적용해 보세요</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- END: Key Highlights Block -->
+
+
+    <!-- BEGIN: Detailed Information Section -->
+    <section id="programs" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">AI교실 상세 가이드</h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">구글 워크스페이스 교육부터 전문 인공지능 저작 훈련까지, 쉽고 완벽하게 교육합니다.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <!-- Card 1: 교육 내용 -->
+          <div id="methods" class="bg-white rounded-3xl p-8 border border-gray-100 shadow-card hover:border-brand-blue/30 transition-all flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-8">
+                <span class="text-brand-blue bg-brand-light-blue font-bold text-sm px-3.5 py-1.5 rounded-full">Part 1</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-blue"></span>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 border-b-2 border-brand-blue pb-1 inline-block mb-8">교육 내용</h3>
+              <div class="space-y-6">
+                <!-- Workspace content row -->
+                <div class="flex items-center space-x-4">
+                  <div class="bg-gray-50 p-2.5 rounded-2xl group-hover:bg-brand-light-blue transition-colors flex-shrink-0 border border-gray-100/50">
+                    <img alt="구글 워크스페이스 로고" class="w-8 h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDECe8f7GF-znt65-UvmVtNJl630iTLSbyQIFdftwYAlmj5k5LGV1yrLQguqMS_ZbTyMe3yy8x3xiynVt7ib2yCmoxuAdoC-1Zkny-_TNxJBnmHy7N3L4Yp4mCAOJ-7XKGW5hCnCb0gQ9a30U_gLeOGk7wh21b4sjEl96HxO-XtCe7IK8vu4tnlxTFnRrHPs6sfzRDfr5_mKmDxDoqyJdeeVeUtaBFip0qwIqL8iNjPQByT2kvle6WMqNIoWNYk1-9zZrzsovvd"/>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-900 text-sm">구글 워크스페이스</h4>
+                    <p class="text-xs text-gray-500 mt-0.5">협업 도구 기초 및 고급 활용</p>
+                  </div>
+                </div>
+                <!-- Ebook publishing content row -->
+                <div class="flex items-center space-x-4">
+                  <div class="bg-gray-50 p-2.5 rounded-2xl group-hover:bg-brand-light-blue transition-colors flex-shrink-0 border border-gray-100/50">
+                    <img alt="자서전 전자책 로고" class="w-8 h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC_uX8pJWBIYvgHxGojWJB1Wqp_F-nr2hjSu_j_HzPUTpGs48m-77LQUgfvrH3XK7JtujKPewR7_sCP6kWjo1K6AfOyokxOT8ALWy-fK7ppxeLaitQTHK6XgmY5RsljtuxqC3NOwX7fC9T4CBj0e3MCmIg5gFl87HXkLvStIIm8wrt3OzELlbENfJnOQ5p9vdBKBiN4aVNK2KDdz0jhYUm08i0qv-mU9veSXU3cf450ZlFj94pd_uk7o9AktL9QWsYRLNBrlaL"/>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-900 text-sm leading-tight">AI와 함께 전자책 출판</h4>
+                    <p class="text-xs text-gray-500 mt-0.5">기획, AI 공동 집필, 작가 데뷔</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: 교육 방식 -->
+          <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-card hover:border-brand-blue/30 transition-all flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-8">
+                <span class="text-brand-blue bg-brand-light-blue font-bold text-sm px-3.5 py-1.5 rounded-full">Part 2</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-blue"></span>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 border-b-2 border-brand-blue pb-1 inline-block mb-8">교육 방식</h3>
+              <div class="space-y-6">
+                <!-- Method row 1 -->
+                <div class="flex items-center space-x-4">
+                  <div class="bg-brand-blue text-white p-3 rounded-2xl group-hover:bg-blue-600 transition-colors flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path d="M9.75 17L9 21h6l-.75-4M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-900 text-sm">온라인 실습 중심</h4>
+                    <p class="text-xs text-gray-500 mt-0.5">화면 보면서 쉽게 따라하기</p>
+                  </div>
+                </div>
+                <!-- Method row 2 -->
+                <div class="flex items-center space-x-4">
+                  <div class="bg-brand-blue text-white p-3 rounded-2xl group-hover:bg-blue-600 transition-colors flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-900 text-sm">상담을 통해 결정</h4>
+                    <p class="text-xs text-gray-500 mt-0.5">개개인의 템포 및 니즈 조정</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: 기대 효과 -->
+          <div id="outcomes" class="bg-white rounded-3xl p-8 border border-gray-100 shadow-card hover:border-brand-blue/30 transition-all flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-8">
+                <span class="text-brand-blue bg-brand-light-blue font-bold text-sm px-3.5 py-1.5 rounded-full">Part 3</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-blue"></span>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 border-b-2 border-brand-blue pb-1 inline-block mb-8">기대 효과</h3>
+              <div class="space-y-6">
+                <!-- Trend growth row -->
+                <div class="flex items-center space-x-4">
+                  <div class="bg-brand-blue text-white p-3 rounded-2xl group-hover:bg-blue-600 transition-colors flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-900 text-sm">AI 활용수준 업그레이드</h4>
+                    <p class="text-xs text-gray-500 mt-0.5">단순 탐색을 넘어 실무 레벨로</p>
+                  </div>
+                </div>
+                <!-- Personal branding row -->
+                <div class="flex items-center space-x-4">
+                  <div class="bg-brand-blue text-white p-3 rounded-2xl group-hover:bg-blue-600 transition-colors flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-900 text-sm">퍼스널 브랜딩 작가 데뷔</h4>
+                    <p class="text-xs text-gray-500 mt-0.5">자신만의 노하우가 담긴 전자책 출간</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: 강사 소개 -->
+          <div id="instructor-info" class="bg-white rounded-3xl p-8 border border-gray-100 shadow-card hover:border-brand-blue/30 transition-all flex flex-col justify-between relative overflow-hidden group">
+            
+            <!-- Character background watermark overlay -->
+            <div class="absolute right-0 bottom-0 w-36 h-40 opacity-20 pointer-events-none group-hover:scale-105 transition-all">
+              <img alt="강사 캐릭터" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr5lX70L3njQ8W4iBseXheAtEUXOdZrKydPVA-9jEXkRNatZgIcznudskhTeA5HvZpR-F4G7wBBzpHJquAP451QQzqg-XYSiW0JAYs_lbtJFt-dSiCLhMqxxa1xO2OxxkxWdjYyay9lRUXi_8aV6lcLVng2L232BJ_nufV4gV3sJ56BivwKaRQ2skI448yO5HR6sfCDYTsjojKuNnc7VlV1eX2mESdCpps_xlxTLMvWe7jB7ek8hgsTWnb09jQCUNtcKgXxWaZ" style="clip-path: inset(100px 300px 400px 550px); transform: scale(3.5) translate(10%, 15%);"/>
+            </div>
+
+            <div class="z-10">
+              <div class="flex items-center justify-between mb-8">
+                <span class="text-brand-blue bg-brand-light-blue font-bold text-sm px-3.5 py-1.5 rounded-full">Instructor</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-blue"></span>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 border-b-2 border-brand-blue pb-1 inline-block mb-8">강사 소개</h3>
+              <div class="space-y-4">
+                <!-- Achievement 1 -->
+                <div class="flex items-start space-x-3">
+                  <div class="p-1 rounded bg-brand-light-blue text-brand-blue flex-shrink-0 mt-0.5">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <span class="text-gray-800 font-bold text-sm leading-snug">구글 워크스페이스 전문 강사</span>
+                </div>
+                <!-- Achievement 2 -->
+                <div class="flex items-start space-x-3">
+                  <div class="p-1 rounded bg-brand-light-blue text-brand-blue flex-shrink-0 mt-0.5">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <span class="text-gray-800 font-bold text-sm leading-snug">전자책 출판 코치 &amp; 컨설턴트</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- END: Detailed Information Section -->
+
+
+    <!-- BEGIN: Live Contact Submission Section -->
+    <section id="contact-section" class="pb-24 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        
+        <!-- Live notification banner (Dynamically updated) -->
+        <div id="live-toast" class="hidden bg-emerald-500 text-white rounded-2xl shadow-lg p-4 mb-6 flex items-center justify-between animate-pulse">
+          <div class="flex items-center space-x-3">
+            <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span class="font-bold" id="live-toast-text">교육 문의가 성공적으로 접수되었습니다!</span>
+          </div>
+          <button onclick="document.getElementById('live-toast').classList.add('hidden')" class="hover:bg-white/20 p-1.5 rounded-full">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </button>
+        </div>
+
+        <div class="bg-white rounded-3xl shadow-card p-6 sm:p-10 border border-gray-100">
+          <div class="flex flex-col lg:flex-row items-stretch gap-10">
+            
+            <!-- Left Header Intro -->
+            <div class="lg:w-1/4 flex flex-col justify-between">
+              <div>
+                <span class="text-brand-blue font-bold tracking-wider uppercase text-sm mb-2 block">Quick Query</span>
+                <h2 class="text-3xl font-black text-gray-950 pb-2 border-b-4 border-brand-blue/30 inline-block">
+                  교육 문의
+                </h2>
+                <p class="text-gray-500 mt-4 text-sm leading-relaxed">
+                  맞춤형 강좌 조율, 수강료 및 시간표 등 궁금한 점을 작성하면 친절하게 안내해 드립니다.
+                </p>
+              </div>
+              
+              <!-- Extra trust indicators -->
+              <div class="hidden lg:block mt-8 bg-brand-light-blue/50 p-4 rounded-2xl border border-brand-blue/10">
+                <span class="font-bold text-xs text-brand-blue uppercase flex items-center mb-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-blue mr-2"></span>
+                  실시간 알림
+                </span>
+                <p class="text-xs text-gray-600">성함과 번호를 남겨주시면 담당 강사가 상담 전화를 드립니다.</p>
+              </div>
+            </div>
+
+            <!-- Middle Form -->
+            <div class="flex-grow">
+              <form id="contact-form" class="space-y-4">
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1" for="user-name">성함 <span class="text-red-500">*</span></label>
+                    <input required id="user-name" name="name" class="w-full border-gray-300 rounded-xl p-3 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue bg-gray-50 border transition-all text-sm font-medium" placeholder="이름을 입력해 주세요" type="text"/>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1" for="user-tel">연락처 <span class="text-red-500">*</span></label>
+                    <input required id="user-tel" name="tel" class="w-full border-gray-300 rounded-xl p-3 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue bg-gray-50 border transition-all text-sm font-medium" placeholder="010-XXXX-XXXX" type="tel"/>
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-sm font-bold text-gray-700 mb-1" for="user-msg">문의 내용 <span class="text-red-500">*</span></label>
+                  <textarea required id="user-msg" name="message" class="w-full border-gray-300 rounded-xl p-3 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue bg-gray-50 border transition-all text-sm font-medium" placeholder="관심 있으신 교육 종류나 원하시는 시간표를 남겨주세요." rows="3"></textarea>
+                </div>
+              </form>
+            </div>
+
+            <!-- Right CTA Submission -->
+            <div class="lg:w-1/4 flex items-end">
+              <button id="submit-btn" class="w-full py-5 bg-brand-blue hover:bg-brand-dark-blue text-white rounded-2xl font-bold text-xl flex flex-col items-center justify-center btn-hover shadow-lg cursor-pointer self-stretch" type="submit">
+                <svg class="w-8 h-8 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path>
+                </svg>
+                <span>교육 문의하기</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Live Local Records Panel (Admin Dashboard Mock / Personal Verification) -->
+        <div class="mt-8 bg-white border border-gray-100 rounded-3xl p-6 shadow-card">
+          <div class="flex justify-between items-center mb-4 pb-3 border-b border-gray-100">
+            <h3 class="font-extrabold text-lg text-gray-900 flex items-center space-x-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+              <span>최근 접수된 문의 내역 (실시간 Local 저장)</span>
+            </h3>
+            <button id="clear-records-btn" class="text-xs text-red-500 hover:text-red-700 font-bold hover:underline">
+              모든 내역 지우기
+            </button>
+          </div>
+          
+          <!-- Empty View -->
+          <div id="no-records-view" class="text-center py-8">
+            <p class="text-gray-400 text-sm">현재 등록된 문의 내역이 없습니다. 첫 번째 문의를 등록해 보세요!</p>
+          </div>
+          
+          <!-- Records Table List -->
+          <div id="records-container" class="hidden overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-100">
+              <thead>
+                <tr class="bg-gray-50/50">
+                  <th scope="col" class="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">시간</th>
+                  <th scope="col" class="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">성함</th>
+                  <th scope="col" class="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">연락처</th>
+                  <th scope="col" class="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">문의글</th>
+                  <th scope="col" class="px-4 py-3 class='text-right w-12'"></th>
+                </tr>
+              </thead>
+              <tbody id="records-tbody" class="bg-white divide-y divide-gray-50 text-sm">
+                <!-- Stored items fallback -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- END: Live Contact Submission Section -->
+  </main>
+
+
+  <!-- BEGIN: Footer Section -->
+  <footer class="bg-brand-blue text-white py-14 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Upper Footer Row -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8 border-b border-white/10 pb-10">
+        
+        <!-- Left Footer Info -->
+        <div class="flex items-center space-x-6">
+          <div class="font-black text-2xl tracking-normal leading-tight text-white flex flex-col border-r border-white/20 pr-6">
+            <span>다산</span>
+            <span>미래</span>
+            <span>창작소</span>
+          </div>
+          <div class="text-sm font-light text-blue-100 max-w-xs">
+            AI와 함께 한 단계 성장하는 실습 중심 교육 동반자
+          </div>
+        </div>
+
+        <!-- Middle Quick Navigation -->
+        <nav class="flex flex-wrap justify-center gap-6 lg:gap-8 text-sm font-medium">
+          <a class="hover:text-blue-200 transition-all hover:underline" href="#programs">교육 프로그램</a>
+          <a class="hover:text-blue-200 transition-all hover:underline" href="#methods">교육 방식</a>
+          <a class="hover:text-blue-200 transition-all hover:underline" href="#outcomes">기대 효과</a>
+          <a class="hover:text-blue-200 transition-all hover:underline" href="#instructor-info">강사 소개</a>
+          <a class="hover:text-blue-200 transition-all hover:underline" href="#contact-section">교육 문의</a>
+        </nav>
+
+      </div>
+
+      <!-- Lower Copyright Row -->
+      <div class="mt-8 flex flex-col md:flex-row justify-between items-center text-xs text-blue-150/70 gap-4 opacity-75">
+        <div class="text-center md:text-left">
+          © 다산미래창작소 AI교실. All rights reserved. 본 웹사이트는 GitHub Pages 배포용 정적 사이트입니다.
+        </div>
+      </div>
+
+    </div>
+  </footer>
+  <!-- END: Footer Section -->
+
+
+  <!-- INTERACTIVE VANILLA JAVASCRIPT REGISTRY -->
+  <script>
+    // Elements Selector Cache
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    const drawerContent = document.getElementById('drawer-content');
+    const closeDrawerBtn = document.getElementById('close-drawer-btn');
+    const drawerLinks = document.querySelectorAll('.drawer-link');
+    const drawerCta = document.getElementById('drawer-cta-btn');
+
+    const contactForm = document.getElementById('contact-form');
+    const userNameInput = document.getElementById('user-name');
+    const userTelInput = document.getElementById('user-tel');
+    const userMsgInput = document.getElementById('user-msg');
+    const submitBtn = document.getElementById('submit-btn');
+
+    const liveToast = document.getElementById('live-toast');
+    const liveToastText = document.getElementById('live-toast-text');
+
+    const noRecordsView = document.getElementById('no-records-view');
+    const recordsContainer = document.getElementById('records-container');
+    const recordsTbody = document.getElementById('records-tbody');
+    const clearRecordsBtn = document.getElementById('clear-records-btn');
+
+    // 1) Mobile Menu Controls
+    function openDrawer() {
+      mobileDrawer.classList.remove('hidden');
+      setTimeout(() => {
+        drawerContent.classList.remove('translate-x-full');
+      }, 50);
+    }
+
+    function closeDrawer() {
+      drawerContent.classList.add('translate-x-full');
+      setTimeout(() => {
+        mobileDrawer.classList.add('hidden');
+      }, 300);
+    }
+
+    mobileMenuBtn.addEventListener('click', openDrawer);
+    closeDrawerBtn.addEventListener('click', closeDrawer);
+    mobileDrawer.addEventListener('click', (e) => {
+      if (e.target === mobileDrawer) closeDrawer();
+    });
+
+    drawerLinks.forEach(link => {
+      link.addEventListener('click', closeDrawer);
+    });
+    drawerCta.addEventListener('click', closeDrawer);
+
+
+    // 2) Stored Contacts List & Logic
+    const LOCAL_STORAGE_KEY = 'dasan_ai_classroom_inquires';
+
+    function loadRecords() {
+      const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
+      return stored ? JSON.parse(stored) : [];
+    }
+
+    function saveRecords(records) {
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(records));
+    }
+
+    function formatDate(dateString) {
+      const d = new Date(dateString);
+      return `${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+    }
+
+    function renderRecords() {
+      const records = loadRecords();
+      if (records.length === 0) {
+        noRecordsView.classList.remove('hidden');
+        recordsContainer.classList.add('hidden');
+        return;
+      }
+
+      noRecordsView.classList.add('hidden');
+      recordsContainer.classList.remove('hidden');
+
+      recordsTbody.innerHTML = '';
+      records.reverse().forEach((record, index) => {
+        // Correct chronological indexing since we reversed
+        const actualIndex = records.length - 1 - index;
+        
+        const row = document.createElement('tr');
+        row.className = 'hover:bg-gray-50/50 transition-colors';
+        row.innerHTML = `
+          <td class="px-4 py-3 whitespace-nowrap text-xs text-gray-500">${formatDate(record.timestamp)}</td>
+          <td class="px-4 py-3 whitespace-nowrap font-bold text-gray-900">${escapeHtml(record.name)}</td>
+          <td class="px-4 py-3 whitespace-nowrap text-xs font-mono text-gray-600">${escapeHtml(record.tel)}</td>
+          <td class="px-4 py-3 text-xs text-gray-600 max-w-xs truncate" title="${escapeHtml(record.message)}">${escapeHtml(record.message)}</td>
+          <td class="px-4 py-3 whitespace-nowrap text-right text-xs">
+            <button onclick="deleteRecord(${actualIndex})" class="text-rose-500 hover:text-rose-700 font-bold hover:underline focus:outline-none">삭제</button>
+          </td>
+        `;
+        recordsTbody.appendChild(row);
+      });
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+    }
+
+    window.deleteRecord = function(index) {
+      const records = loadRecords();
+      records.splice(index, 1);
+      saveRecords(records);
+      renderRecords();
+      showToast('문의가 삭제되었습니다.', 'bg-gray-700');
+    }
+
+    // 3) Toast Feedback Alert
+    let toastTimeout;
+    function showToast(message, bgColorClass = 'bg-emerald-500') {
+      clearTimeout(toastTimeout);
+      liveToastText.textContent = message;
+      liveToast.className = `fixed bottom-6 right-6 z-50 text-white rounded-2xl shadow-xl p-4 flex items-center space-x-3 transition-all duration-350 transform opacity-100 translate-y-0 ${bgColorClass}`;
+      liveToast.classList.remove('hidden');
+
+      toastTimeout = setTimeout(() => {
+        liveToast.classList.add('opacity-0');
+        liveToast.classList.add('translate-y-2');
+        setTimeout(() => {
+          liveToast.classList.add('hidden');
+          liveToast.classList.remove('opacity-0');
+          liveToast.classList.remove('translate-y-2');
+        }, 350);
+      }, 4000);
+    }
+
+    // Initialize Toast as hidden on load but make it absolute/fixed styled so it renders correctly
+    liveToast.className = 'hidden';
+
+    // 4) Form Submission Event
+    submitBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const name = userNameInput.value.trim();
+      const tel = userTelInput.value.trim();
+      const message = userMsgInput.value.trim();
+
+      // Simple validation checks
+      if (!name) {
+        showToast('성함을 입력해 주세요.', 'bg-rose-500');
+        userNameInput.focus();
+        return;
+      }
+      if (!tel) {
+        showToast('연락처를 입력해 주세요.', 'bg-rose-500');
+        userTelInput.focus();
+        return;
+      }
+      if (!message) {
+        showToast('문의 내용을 입력해 주세요.', 'bg-rose-500');
+        userMsgInput.focus();
+        return;
+      }
+
+      // Store in LocalStorage
+      const records = loadRecords();
+      records.push({
+        name,
+        tel,
+        message,
+        timestamp: new Date().toISOString()
+      });
+      saveRecords(records);
+
+      // Clear Form Fields
+      contactForm.reset();
+
+      // Update View List
+      renderRecords();
+
+      // Interactive Success
+      showToast('교육 문의가 성공적으로 접수되었습니다! 담당자가 신속히 확인하여 연락드리겠습니다.');
+    });
+
+    // 5) Clear All records
+    clearRecordsBtn.addEventListener('click', () => {
+      if (confirm('모든 문의 내역을 지우시겠습니까? (이 작업은 로컬 기기 데이터만 초기화합니다)')) {
+        saveRecords([]);
+        renderRecords();
+        showToast('모든 로컬 접수 내역이 삭제되었습니다.', 'bg-gray-600');
+      }
+    });
+
+    // On Load Render
+    document.addEventListener('DOMContentLoaded', () => {
+      renderRecords();
+    });
+  </script>
+
+</body>
+</html>

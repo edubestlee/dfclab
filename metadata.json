@@ -1,0 +1,6 @@
+{
+  "name": "다산미래창작소 AI교실",
+  "description": "AI와 함께 시대 전환의 서핑을 돕는 실습 중심 교육 프로그램",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
