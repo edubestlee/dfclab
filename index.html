@@ -71,20 +71,10 @@
           <a class="hover:text-brand-blue transition-colors" href="#methods">교육 방식</a>
           <a class="hover:text-brand-blue transition-colors" href="#outcomes">기대 효과</a>
           <a class="hover:text-brand-blue transition-colors" href="#instructor-info">강사 소개</a>
-          <a class="hover:text-brand-blue transition-colors" href="#contact-section">교육 문의</a>
         </nav>
 
         <!-- CTA & Hamburger Button -->
         <div class="flex items-center space-x-4">
-          <div class="hidden md:block">
-            <a class="inline-flex items-center px-6 py-2.5 bg-brand-blue hover:bg-brand-dark-blue text-white text-sm font-bold rounded-full btn-hover" href="#contact-section">
-              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path>
-              </svg>
-              교육 문의하기
-            </a>
-          </div>
-
           <!-- Mobile Hamburger Toggle -->
           <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 hover:text-brand-blue transition-all focus:outline-none" aria-label="메뉴 열기">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="hamburger-icon">
@@ -114,17 +104,16 @@
             <a class="drawer-link hover:text-brand-blue py-2 border-b border-gray-50" href="#methods">교육 방식</a>
             <a class="drawer-link hover:text-brand-blue py-2 border-b border-gray-50" href="#outcomes">기대 효과</a>
             <a class="drawer-link hover:text-brand-blue py-2 border-b border-gray-50" href="#instructor-info">강사 소개</a>
-            <a class="drawer-link hover:text-brand-blue py-2 border-b border-gray-50" href="#contact-section">교육 문의</a>
           </nav>
         </div>
 
         <!-- Drawer CTA Footer -->
         <div class="mt-auto pt-6 border-t">
-          <a class="w-full inline-flex items-center justify-center py-3 bg-brand-blue text-white font-bold rounded-lg hover:bg-brand-dark-blue max-w-full" href="#contact-section" id="drawer-cta-btn">
-            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path>
+          <a class="w-full inline-flex items-center justify-center py-3 bg-brand-blue text-white font-bold rounded-lg hover:bg-brand-dark-blue max-w-full" href="https://docs.google.com/forms/d/e/1FAIpQLSdDLJppDTuOZvwYkd7TseusPlY9CzSRVLE7qtX6aJbAewAz7A/viewform" target="_blank" rel="noopener noreferrer" id="drawer-cta-btn">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
             </svg>
-            교육 문의하기
+            교육 문의
           </a>
         </div>
       </div>
@@ -149,11 +138,11 @@
               서핑을 돕는 <span class="text-brand-blue font-bold border-b-4 border-brand-blue/30 pb-0.5">실습 중심 교육 프로그램</span>
             </p>
             <div>
-              <a class="inline-flex items-center px-8 py-4 bg-brand-blue hover:bg-brand-dark-blue text-white text-lg font-bold rounded-xl btn-hover shadow-lg" href="#contact-section">
-                <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path>
+              <a class="inline-flex items-center px-8 py-4 bg-brand-blue hover:bg-brand-dark-blue text-white text-lg font-bold rounded-xl btn-hover shadow-lg" href="https://docs.google.com/forms/d/e/1FAIpQLSdDLJppDTuOZvwYkd7TseusPlY9CzSRVLE7qtX6aJbAewAz7A/viewform" target="_blank" rel="noopener noreferrer">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
-                교육 문의하기
+                교육 문의
               </a>
             </div>
           </div>
@@ -373,90 +362,11 @@
     <!-- END: Detailed Information Section -->
 
 
-    <!-- BEGIN: Live Contact Submission Section -->
-    <section id="contact-section" class="pb-24 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-7xl mx-auto">
-        
-        <!-- Live notification banner (Dynamically updated) -->
-        <div id="live-toast" class="hidden bg-emerald-500 text-white rounded-2xl shadow-lg p-4 mb-6 flex items-center justify-between animate-pulse">
-          <div class="flex items-center space-x-3">
-            <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <span class="font-bold" id="live-toast-text">교육 문의가 성공적으로 접수되었습니다!</span>
-          </div>
-          <button onclick="document.getElementById('live-toast').classList.add('hidden')" class="hover:bg-white/20 p-1.5 rounded-full">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-          </button>
-        </div>
-
-        <div class="bg-white rounded-3xl shadow-card p-6 sm:p-10 border border-gray-100">
-          <div class="flex flex-col lg:flex-row items-stretch gap-10">
-            
-            <!-- Left Header Intro -->
-            <div class="lg:w-1/4 flex flex-col justify-between">
-              <div>
-                <h2 class="text-3xl font-black text-gray-950 pb-2 border-b-4 border-brand-blue/30 inline-block">
-                  교육 문의
-                </h2>
-                <p class="text-gray-500 mt-4 text-sm leading-relaxed">
-                  맞춤형 강좌 조율, 수강료 및 시간표 등 궁금한 점을 작성하면 친절하게 안내해 드립니다.
-                </p>
-              </div>
-              
-              <!-- Extra trust indicators -->
-              <div class="hidden lg:block mt-8 bg-brand-light-blue/50 p-4 rounded-2xl border border-brand-blue/10">
-                <span class="font-bold text-xs text-brand-blue uppercase flex items-center mb-1">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-blue mr-2"></span>
-                  실시간 알림
-                </span>
-                <p class="text-xs text-gray-600">성함과 번호를 남겨주시면 담당 강사가 상담 전화를 드립니다.</p>
-              </div>
-            </div>
-
-            <!-- Middle Form -->
-            <div class="flex-grow">
-              <form id="contact-form" class="space-y-4">
-                <div class="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1" for="user-name">성함 <span class="text-red-500">*</span></label>
-                    <input required id="user-name" name="name" class="w-full border-gray-300 rounded-xl p-3 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue bg-gray-50 border transition-all text-sm font-medium" placeholder="이름을 입력해 주세요" type="text"/>
-                  </div>
-                  <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1" for="user-tel">연락처 <span class="text-red-500">*</span></label>
-                    <input required id="user-tel" name="tel" class="w-full border-gray-300 rounded-xl p-3 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue bg-gray-50 border transition-all text-sm font-medium" placeholder="010-XXXX-XXXX" type="tel"/>
-                  </div>
-                </div>
-                <div>
-                  <label class="block text-sm font-bold text-gray-700 mb-1" for="user-msg">문의 내용 <span class="text-red-500">*</span></label>
-                  <textarea required id="user-msg" name="message" class="w-full border-gray-300 rounded-xl p-3 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue bg-gray-50 border transition-all text-sm font-medium" placeholder="관심 있으신 교육 종류나 원하시는 시간표를 남겨주세요." rows="3"></textarea>
-                </div>
-              </form>
-            </div>
-
-            <!-- Right CTA Submission -->
-            <div class="lg:w-1/4 flex items-end">
-              <button id="submit-btn" class="w-full py-5 bg-brand-blue hover:bg-brand-dark-blue text-white rounded-2xl font-bold text-xl flex flex-col items-center justify-center btn-hover shadow-lg cursor-pointer self-stretch" type="submit">
-                <svg class="w-8 h-8 mb-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path>
-                </svg>
-                <span>교육 문의하기</span>
-              </button>
-            </div>
-
-          </div>
-        </div>
-
-
-
-      </div>
-    </section>
-    <!-- END: Live Contact Submission Section -->
   </main>
 
 
   <!-- BEGIN: Footer Section -->
-  <footer class="bg-brand-blue text-white py-14 px-4 sm:px-6 lg:px-8">
+  <footer id="footer" class="bg-brand-blue text-white py-14 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
       
       <!-- Upper Footer Row -->
@@ -480,7 +390,6 @@
           <a class="hover:text-blue-200 transition-all hover:underline" href="#methods">교육 방식</a>
           <a class="hover:text-blue-200 transition-all hover:underline" href="#outcomes">기대 효과</a>
           <a class="hover:text-blue-200 transition-all hover:underline" href="#instructor-info">강사 소개</a>
-          <a class="hover:text-blue-200 transition-all hover:underline" href="#contact-section">교육 문의</a>
         </nav>
 
       </div>
@@ -499,9 +408,6 @@
 
   <!-- INTERACTIVE VANILLA JAVASCRIPT REGISTRY -->
   <script>
-    // 🛠️ 구글 앱스 스크립트 웹앱 주소 기입란 (배포 완료 후 교환해주세요!)
-    const SCRIPT_URL = "YOUR_APPS_SCRIPT_WEB_APP_URL";
-
     // Elements Selector Cache
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileDrawer = document.getElementById('mobile-drawer');
@@ -509,15 +415,6 @@
     const closeDrawerBtn = document.getElementById('close-drawer-btn');
     const drawerLinks = document.querySelectorAll('.drawer-link');
     const drawerCta = document.getElementById('drawer-cta-btn');
-
-    const contactForm = document.getElementById('contact-form');
-    const userNameInput = document.getElementById('user-name');
-    const userTelInput = document.getElementById('user-tel');
-    const userMsgInput = document.getElementById('user-msg');
-    const submitBtn = document.getElementById('submit-btn');
-
-    const liveToast = document.getElementById('live-toast');
-    const liveToastText = document.getElementById('live-toast-text');
 
     // 1) Mobile Menu Controls
     function openDrawer() {
@@ -527,6 +424,7 @@
       }, 50);
     }
 
+    // Navigation and Menu Drawer Close
     function closeDrawer() {
       drawerContent.classList.add('translate-x-full');
       setTimeout(() => {
@@ -544,108 +442,6 @@
       link.addEventListener('click', closeDrawer);
     });
     drawerCta.addEventListener('click', closeDrawer);
-
-
-    // 2) Toast Feedback Alert
-    let toastTimeout;
-    function showToast(message, bgColorClass = 'bg-emerald-500') {
-      clearTimeout(toastTimeout);
-      liveToastText.textContent = message;
-      liveToast.className = `fixed bottom-6 right-6 z-50 text-white rounded-2xl shadow-xl p-4 flex items-center space-x-3 transition-all duration-350 transform opacity-100 translate-y-0 ${bgColorClass}`;
-      liveToast.classList.remove('hidden');
-
-      toastTimeout = setTimeout(() => {
-        liveToast.classList.add('opacity-0');
-        liveToast.classList.add('translate-y-2');
-        setTimeout(() => {
-          liveToast.classList.add('hidden');
-          liveToast.classList.remove('opacity-0');
-          liveToast.classList.remove('translate-y-2');
-        }, 350);
-      }, 5000);
-    }
-
-    // Initialize Toast as hidden on load
-    liveToast.className = 'hidden';
-
-
-    // 3) Form Submission Event to Google Sheet Web App
-    submitBtn.addEventListener('click', async (e) => {
-      e.preventDefault();
-
-      const name = userNameInput.value.trim();
-      const tel = userTelInput.value.trim();
-      const message = userMsgInput.value.trim();
-
-      // Simple validation checks
-      if (!name) {
-        showToast('성함을 입력해 주세요.', 'bg-rose-500');
-        userNameInput.focus();
-        return;
-      }
-      if (!tel) {
-        showToast('연락처를 입력해 주세요.', 'bg-rose-500');
-        userTelInput.focus();
-        return;
-      }
-      if (!message) {
-        showToast('문의 내용을 입력해 주세요.', 'bg-rose-500');
-        userMsgInput.focus();
-        return;
-      }
-
-      // UX: 전송 대기 상태 UI 전환 (더블 클릭 방지 및 완료 대기 알림)
-      submitBtn.disabled = true;
-      const originalBtnContent = submitBtn.innerHTML;
-      submitBtn.innerHTML = `
-        <svg class="animate-spin h-7 w-7 text-white mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-        </svg>
-        <span class="text-sm">전송 중...</span>
-      `;
-
-      // 가상/시뮬레이션 체험 모드 (사용자가 SCRIPT_URL을 변경하기 전에 즉시 인터랙션을 테스트해볼 수 있도록 처리)
-      if (SCRIPT_URL === "YOUR_APPS_SCRIPT_WEB_APP_URL") {
-        setTimeout(() => {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalBtnContent;
-          showToast('📢 [체험 전송 완료] 연동 URL이 초기 상태이므로 시뮬레이션 작동되었습니다. 구글 시트로의 전송을 원하시면 아래 Apps Script 가이드를 참고해 주세요.', 'bg-blue-600');
-          contactForm.reset();
-        }, 1200);
-        return;
-      }
-
-      // 실제 구글 스프레드시트 Apps Script 연동 전송 시도
-      try {
-        const payload = new URLSearchParams();
-        payload.append('name', name);
-        payload.append('tel', tel);
-        payload.append('message', message);
-
-        // fetch 'no-cors'는 브라우저가 승인되지 않은 도메인으로의 크로스 도메인 요청에서 응답 본문을 직접 읽지는 못하지만, 
-        // 구글의 백엔드 서버로는 데이터 패킷이 아주 안전하고 완벽하게 전달되어 구글시트에 기록됩니다.
-        await fetch(SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          body: payload,
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        });
-
-        // 성공
-        showToast('🎉 교육 문의가 지정하신 구글 스프레드시트에 성공적으로 전계/기록되었습니다!');
-        contactForm.reset();
-
-      } catch (error) {
-        console.error('구글전송 실패:', error);
-        showToast('데이터 전송 중에 기술적 오차가 발생했습니다. Apps Script 배포 설정을 다시 검사해 주세요.', 'bg-rose-500');
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalBtnContent;
-      }
-    });
 
   </script>
 
