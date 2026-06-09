@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" class="scroll-smooth">
+<html lang="ko" class="scroll-smooth overflow-x-hidden w-full">
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -54,7 +54,7 @@
     }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans selection:bg-brand-light-blue selection:text-brand-blue">
+<body class="bg-gray-50 text-gray-900 font-sans selection:bg-brand-light-blue selection:text-brand-blue overflow-x-hidden w-full">
 
   <!-- BEGIN: Navigation / Header -->
   <header class="bg-white sticky top-0 z-50 shadow-nav border-b border-gray-100">
@@ -123,22 +123,22 @@
 
   <main>
     <!-- BEGIN: Hero Section -->
-    <section class="hero-gradient relative overflow-hidden py-16 md:py-28 lg:py-36">
+    <section id="hero" class="hero-gradient relative overflow-hidden py-16 md:py-28 lg:py-36">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid md:grid-cols-2 gap-12 items-center">
           
           <!-- Hero Text -->
           <div class="text-left select-text">
-            <h3 class="text-2xl md:text-3xl font-extrabold text-gray-800 tracking-tight mb-2">다산미래창작소</h3>
-            <h1 class="font-black text-brand-blue mb-6 text-7xl md:text-8xl lg:text-9xl tracking-tight leading-none" style="text-shadow: 0 4px 15px rgba(0, 56, 200, 0.12);">
+            <h3 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-gray-800 tracking-tight mb-2">다산미래창작소</h3>
+            <h1 class="font-black text-brand-blue mb-6 text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight leading-none" style="text-shadow: 0 4px 15px rgba(0, 56, 200, 0.12);">
               AI교실
             </h1>
-            <p class="text-xl md:text-2xl lg:text-3xl font-medium text-gray-700 leading-snug max-w-lg mb-8">
-              AI와 함께 시대 전환의<br/>
+            <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-gray-700 leading-snug max-w-lg mb-8">
+              AI와 함께 시대 전환의<br class="hidden sm:inline"/>
               서핑을 돕는 <span class="text-brand-blue font-bold border-b-4 border-brand-blue/30 pb-0.5">실습 중심 교육 프로그램</span>
             </p>
-            <div>
-              <a class="inline-flex items-center px-8 py-4 bg-brand-blue hover:bg-brand-dark-blue text-white text-lg font-bold rounded-xl btn-hover shadow-lg" href="https://docs.google.com/forms/d/e/1FAIpQLSdDLJppDTuOZvwYkd7TseusPlY9CzSRVLE7qtX6aJbAewAz7A/viewform" target="_blank" rel="noopener noreferrer">
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a class="inline-flex items-center justify-center px-8 py-4 bg-brand-blue hover:bg-brand-dark-blue text-white text-lg font-bold rounded-xl btn-hover shadow-lg w-full sm:w-auto text-center" href="https://docs.google.com/forms/d/e/1FAIpQLSdDLJppDTuOZvwYkd7TseusPlY9CzSRVLE7qtX6aJbAewAz7A/viewform" target="_blank" rel="noopener noreferrer">
                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
@@ -169,28 +169,28 @@
       <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-6">
         
         <!-- Highlight Card 1 -->
-        <div class="bg-white rounded-2xl p-6 sm:p-8 flex items-center space-x-6 shadow-card hover:shadow-xl transition-all border border-gray-100/60">
+        <div class="bg-white rounded-2xl p-5 sm:p-8 flex flex-col sm:flex-row items-center text-center sm:text-left space-y-4 sm:space-y-0 sm:space-x-6 shadow-card hover:shadow-xl transition-all border border-gray-100/60">
           <div class="bg-brand-blue p-4 rounded-2xl text-white flex-shrink-0 shadow-md">
-            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-8 h-8 sm:w-10 sm:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
             </svg>
           </div>
           <div>
-            <h4 class="text-2xl font-black text-gray-900 mb-1">AI시대,</h4>
-            <p class="text-lg text-gray-600 font-medium">무엇이든 가능해집니다</p>
+            <h4 class="text-xl sm:text-2xl font-black text-gray-900 mb-1">AI시대,</h4>
+            <p class="text-base sm:text-lg text-gray-600 font-medium">무엇이든 가능해집니다</p>
           </div>
         </div>
 
         <!-- Highlight Card 2 -->
-        <div class="bg-white rounded-2xl p-6 sm:p-8 flex items-center space-x-6 shadow-card hover:shadow-xl transition-all border border-gray-100/60">
+        <div class="bg-white rounded-2xl p-5 sm:p-8 flex flex-col sm:flex-row items-center text-center sm:text-left space-y-4 sm:space-y-0 sm:space-x-6 shadow-card hover:shadow-xl transition-all border border-gray-100/60">
           <div class="bg-brand-blue p-4 rounded-2xl text-white flex-shrink-0 shadow-md">
-            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-8 h-8 sm:w-10 sm:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
             </svg>
           </div>
           <div>
-            <h4 class="text-2xl font-black text-gray-900 mb-1">성인 누구나</h4>
-            <p class="text-lg text-gray-600 font-medium">실습을 통해 바로 실무에 적용해 보세요</p>
+            <h4 class="text-xl sm:text-2xl font-black text-gray-900 mb-1">성인 누구나</h4>
+            <p class="text-base sm:text-lg text-gray-600 font-medium">실습을 통해 바로 실무에 적용해 보세요</p>
           </div>
         </div>
 
@@ -212,7 +212,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
           <!-- Card 1: 교육 내용 -->
-          <div id="methods" class="bg-white rounded-3xl p-8 border border-gray-100 shadow-card hover:border-brand-blue/30 transition-all flex flex-col justify-between group">
+          <div id="methods" class="bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 shadow-card hover:border-brand-blue/30 transition-all flex flex-col justify-between group">
             <div>
               <div class="flex items-center justify-end mb-8">
                 <span class="w-2.5 h-2.5 rounded-full bg-brand-blue"></span>
@@ -249,7 +249,7 @@
           </div>
 
           <!-- Card 2: 교육 방식 -->
-          <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-card hover:border-brand-blue/30 transition-all flex flex-col justify-between group">
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 shadow-card hover:border-brand-blue/30 transition-all flex flex-col justify-between group">
             <div>
               <div class="flex items-center justify-end mb-8">
                 <span class="w-2.5 h-2.5 rounded-full bg-brand-blue"></span>
@@ -285,7 +285,7 @@
           </div>
 
           <!-- Card 3: 기대 효과 -->
-          <div id="outcomes" class="bg-white rounded-3xl p-8 border border-gray-100 shadow-card hover:border-brand-blue/30 transition-all flex flex-col justify-between group">
+          <div id="outcomes" class="bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 shadow-card hover:border-brand-blue/30 transition-all flex flex-col justify-between group">
             <div>
               <div class="flex items-center justify-end mb-8">
                 <span class="w-2.5 h-2.5 rounded-full bg-brand-blue"></span>
@@ -321,10 +321,10 @@
           </div>
 
           <!-- Card 4: 강사 소개 -->
-          <div id="instructor-info" class="bg-white rounded-3xl p-8 border border-gray-100 shadow-card hover:border-brand-blue/30 transition-all flex flex-col justify-between relative overflow-hidden group">
+          <div id="instructor-info" class="bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 shadow-card hover:border-brand-blue/30 transition-all flex flex-col justify-between relative overflow-hidden group">
             
             <!-- Character background watermark overlay -->
-            <div class="absolute right-0 bottom-0 w-36 h-40 opacity-20 pointer-events-none group-hover:scale-105 transition-all">
+            <div class="absolute right-0 bottom-0 w-36 h-40 opacity-10 sm:opacity-20 pointer-events-none group-hover:scale-105 transition-all">
               <img alt="강사 캐릭터" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr5lX70L3njQ8W4iBseXheAtEUXOdZrKydPVA-9jEXkRNatZgIcznudskhTeA5HvZpR-F4G7wBBzpHJquAP451QQzqg-XYSiW0JAYs_lbtJFt-dSiCLhMqxxa1xO2OxxkxWdjYyay9lRUXi_8aV6lcLVng2L232BJ_nufV4gV3sJ56BivwKaRQ2skI448yO5HR6sfCDYTsjojKuNnc7VlV1eX2mESdCpps_xlxTLMvWe7jB7ek8hgsTWnb09jQCUNtcKgXxWaZ" style="clip-path: inset(100px 300px 400px 550px); transform: scale(3.5) translate(10%, 15%);"/>
             </div>
 
@@ -370,27 +370,31 @@
     <div class="max-w-7xl mx-auto">
       
       <!-- Upper Footer Row -->
-      <div class="flex flex-col md:flex-row justify-between items-center gap-8 border-b border-white/10 pb-10">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8 border-b border-white/10 pb-10 w-full">
         
         <!-- Left Footer Info -->
-        <div class="flex items-center space-x-6">
-          <div class="font-black text-2xl tracking-normal leading-tight text-white flex flex-col border-r border-white/20 pr-6">
-            <span>다산</span>
-            <span>미래</span>
-            <span>창작소</span>
+        <div class="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8 w-full md:w-auto">
+          <div class="flex items-center space-x-6">
+            <div class="font-black text-2xl tracking-normal leading-tight text-white flex flex-col border-r border-white/20 pr-6">
+              <span>다산</span>
+              <span>미래</span>
+              <span>창작소</span>
+            </div>
+            <div class="text-sm font-light text-blue-100 max-w-xs">
+              AI와 함께 한 단계 성장하는 실습 중심 교육 동반자
+            </div>
           </div>
-          <div class="text-sm font-light text-blue-100 max-w-xs">
-            AI와 함께 한 단계 성장하는 실습 중심 교육 동반자
+          
+          <!-- Home Navigation Button -->
+          <div class="flex items-center">
+            <a href="#hero" class="inline-flex items-center px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-xl text-sm font-bold transition-all border border-white/10 group shadow-md">
+              <svg class="w-4 h-4 mr-1.5 transition-transform group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+              Home
+            </a>
           </div>
         </div>
-
-        <!-- Middle Quick Navigation -->
-        <nav class="flex flex-wrap justify-center gap-6 lg:gap-8 text-sm font-medium">
-          <a class="hover:text-blue-200 transition-all hover:underline" href="#programs">교육 프로그램</a>
-          <a class="hover:text-blue-200 transition-all hover:underline" href="#methods">교육 방식</a>
-          <a class="hover:text-blue-200 transition-all hover:underline" href="#outcomes">기대 효과</a>
-          <a class="hover:text-blue-200 transition-all hover:underline" href="#instructor-info">강사 소개</a>
-        </nav>
 
       </div>
 
